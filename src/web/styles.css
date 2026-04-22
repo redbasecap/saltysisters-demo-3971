@@ -1,0 +1,167 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Salty Sisters custom colors */
+  --color-olive-900: #2E3A16;
+  --color-olive-800: #3A4A1C;
+  --color-olive-700: #4A5D23;
+  --color-olive-600: #5A6F2E;
+  --color-olive-500: #6B7F3B;
+  --color-olive-400: #8FA94E;
+  --color-olive-300: #A8BF6E;
+  --color-olive-200: #C5D68C;
+  --color-olive-100: #E2EBCC;
+  --color-olive-50: #F0F4E5;
+
+  --color-sand-900: #5C5647;
+  --color-sand-800: #7A7262;
+  --color-sand-700: #9A8F7D;
+  --color-sand-600: #B5A995;
+  --color-sand-500: #C8BBAA;
+  --color-sand-400: #D9CEBC;
+  --color-sand-300: #E5DDD0;
+  --color-sand-200: #EDE6D6;
+  --color-sand-100: #F5F0E8;
+  --color-sand-50: #FAF8F3;
+
+  --color-orange-accent: #E07032;
+  --color-orange-hover: #F28C5A;
+  --color-orange-light: #FDF0E8;
+
+  --color-dark: #1A1A18;
+  --color-dark-muted: #2D2D28;
+  --color-warm-white: #FEFDFB;
+
+  --font-display: 'Oswald', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #FEFDFB;
+  --foreground: #1A1A18;
+  --card: #FEFDFB;
+  --card-foreground: #1A1A18;
+  --popover: #FEFDFB;
+  --popover-foreground: #1A1A18;
+  --primary: #4A5D23;
+  --primary-foreground: #FEFDFB;
+  --secondary: #F5F0E8;
+  --secondary-foreground: #1A1A18;
+  --muted: #F5F0E8;
+  --muted-foreground: #5C5647;
+  --accent: #E07032;
+  --accent-foreground: #FEFDFB;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #E5DDD0;
+  --input: #E5DDD0;
+  --ring: #8FA94E;
+  --chart-1: #4A5D23;
+  --chart-2: #6B7F3B;
+  --chart-3: #8FA94E;
+  --chart-4: #E07032;
+  --chart-5: #F28C5A;
+  --sidebar: #F5F0E8;
+  --sidebar-foreground: #1A1A18;
+  --sidebar-primary: #4A5D23;
+  --sidebar-primary-foreground: #FEFDFB;
+  --sidebar-accent: #EDE6D6;
+  --sidebar-accent-foreground: #1A1A18;
+  --sidebar-border: #E5DDD0;
+  --sidebar-ring: #8FA94E;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F0E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5D68C;
+  border-radius: 3px;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  font-family: var(--font-body) !important;
+  background: #F5F0E8 !important;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+  font-family: var(--font-body) !important;
+}
+.leaflet-popup-tip {
+  box-shadow: none !important;
+}
+
+/* Hide photo strip scrollbar but keep scroll */
+.photo-strip-scroll::-webkit-scrollbar {
+  display: none;
+}
+.photo-strip-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
