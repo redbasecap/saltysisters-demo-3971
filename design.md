@@ -35,9 +35,10 @@ Women's community movement. Raw, real, warm. Inviting but bold. Spiritual depth 
 - Not overly polished — raw & authentic
 
 ## Map Style
-- Muted/desaturated tiles (CartoDB Voyager or similar)
-- Custom olive-colored markers
-- Clean popup cards with group info
+- Leaflet map loaded in plain JavaScript
+- Muted Carto light tiles
+- Custom olive-colored pulsing markers
+- Clean popup card with group info
 
 ## i18n
 - Default: German (de)

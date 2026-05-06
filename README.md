@@ -1,82 +1,45 @@
-# Website
+# SALTY SISTERS Website
 
-React + Vite + Hono + Tailwind + Cloudflare Workers
+Reine HTML/CSS/JS-Website mit einem kleinen PHP-Endpunkt für Formular-Mails.
 
-## Project Structure
+## Struktur
 
-- `src/web/` — React frontend: pages, components, styles, hooks
-- `src/api/` — Hono API server (`/api/*`), database schema and migrations
-- `public/` — Static assets (favicon, og-image, logo)
+- `index.html` - Seitenstruktur und Inhalte
+- `styles.css` - komplettes Styling ohne Build-Schritt
+- `app.js` - Navigation, Mobile-Menü, Reveals, Community-Karte und Formularverhalten
+- `mail.php` - POST-Endpunkt für das Kontaktformular
+- `public/` - Bilder, Video, Favicons und Open-Graph-Bild
 
-## Quick Start
+Die Community-Karte nutzt Leaflet über CDN direkt im HTML. Es gibt weiterhin keinen Node/Vite-Build-Schritt.
 
-```bash
-# Install dependencies
-bun install
+## Lokal starten
 
-# Generate types and run migrations
-bun cf-typegen
-bun db:generate
-bun db:migrate
-
-# Start dev server
-bun dev
-```
-
-## shadcn/ui
-
-Add components you need, customize them however you want.
+Für die statische Ansicht reicht ein einfacher Webserver:
 
 ```bash
-bun x shadcn@latest add button card dialog
+python3 -m http.server 8080
 ```
 
-Components land in `src/web/components/ui/`, import with `@/components/ui/button`.
+Dann `http://localhost:8080` öffnen.
 
-```tsx
-import { Button } from "@/components/ui/button"
-
-<Button variant="outline">Click me</Button>
-```
-
-## Routing
-
-Client-side routing uses [wouter](https://github.com/molefrog/wouter). Add routes in `src/web/app.tsx`:
-
-```tsx
-import { Route, Switch } from "wouter";
-
-<Switch>
-  <Route path="/" component={Home} />
-  <Route path="/about" component={About} />
-</Switch>
-```
-
-## Database
-
-Uses [Drizzle ORM](https://orm.drizzle.team/) with Cloudflare D1.
+Das Formular braucht PHP. Lokal kann es so getestet werden:
 
 ```bash
-bun db:generate       # Generate migrations from schema
-bun db:migrate        # Apply migrations locally
+php -S localhost:8080
 ```
 
-Schema is in `src/api/database/schema.ts`, migrations in `src/api/migrations/`.
+## Mail-Konfiguration
 
-## API
+`mail.php` sendet standardmässig an `info@saltysisters.eu`.
 
-Backend uses [Hono](https://hono.dev/) on Cloudflare Workers. All routes are under `/api/*` in `src/api/index.ts`.
+Auf dem Server kann der Empfänger über die Umgebungsvariable `SALTY_MAIL_TO` überschrieben werden:
 
-```ts
-app.get('/api/hello', (c) => c.json({ message: 'Hello' }));
+```bash
+SALTY_MAIL_TO=kontakt@example.com
 ```
 
-## Config
+Der Webserver muss PHPs `mail()` korrekt ausliefern können. Auf Shared Hosting ist das normalerweise über die Hosting-Mailkonfiguration geregelt.
 
-`website.config.json` contains the site name, description, and URL — use it as the source of truth for site-wide values.
+## Branch-Hinweis
 
-## Agent Rules
-
-**CRITICAL: This project uses Tailwind CSS v4.** No `tailwind.config.js`, no `postcss.config.js`, no `@tailwind` directives. All configuration is CSS-first via `@theme` in `src/web/styles.css` and the `@tailwindcss/vite` plugin. Do NOT use Tailwind v3 syntax.
-
-**IMPORTANT: Don't assume how a package works from memory.** Run `bun build` to catch type errors. If anything fails, check the package docs.
+Die frühere React/TypeScript/Vite-Version ist im Branch `alte-ts-version` gesichert. `main` ist die statische HTML/CSS/JS/PHP-Version.

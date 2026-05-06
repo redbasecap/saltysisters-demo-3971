@@ -1,11 +1,456 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
-	<body>
-		<div id="root"></div>
-		<script type="module" src="/src/web/main.tsx"></script>
-	</body>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SALTY SISTERS ist eine überkonfessionelle Frauenbewegung für Gemeinschaft, Freiheit, Worship, Podcast und lokale Community im DACH-Raum."
+    />
+    <meta property="og:title" content="SALTY SISTERS" />
+    <meta
+      property="og:description"
+      content="Von Frauen. Für Frauen. Gemeinschaft, Freiheit und Transformation."
+    />
+    <meta property="og:image" content="public/og-image.png" />
+    <meta name="theme-color" content="#4a5d3a" />
+    <title>SALTY SISTERS</title>
+    <link rel="icon" href="public/favicon.ico" />
+    <link rel="preload" href="public/hero-poster.jpg" as="image" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="SALTY SISTERS Startseite" data-scroll>
+        SALTY SISTERS
+      </a>
+
+      <nav class="desktop-nav" aria-label="Hauptnavigation">
+        <a href="#worship" data-nav-link data-scroll>Worship</a>
+        <a href="#podcast" data-nav-link data-scroll>Podcast</a>
+        <a href="#community" data-nav-link data-scroll>Community</a>
+        <a href="#about" data-nav-link data-scroll>Über uns</a>
+        <a href="#donate" data-nav-link data-scroll>Spenden</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" data-menu-toggle>
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" data-mobile-menu aria-hidden="true">
+      <nav aria-label="Mobile Navigation">
+        <a href="#worship" data-scroll>Worship</a>
+        <a href="#podcast" data-scroll>Podcast</a>
+        <a href="#community" data-scroll>Community</a>
+        <a href="#about" data-scroll>Über uns</a>
+        <a href="#donate" data-scroll>Spenden</a>
+      </nav>
+      <div class="mobile-socials" aria-label="Social Media">
+        <span>Instagram</span>
+        <span>TikTok</span>
+        <span>YouTube</span>
+      </div>
+    </div>
+
+    <main id="main">
+      <section id="top" class="hero" aria-label="SALTY SISTERS">
+        <video
+          class="hero-video"
+          src="public/hero-video.mp4"
+          poster="public/hero-poster.jpg"
+          muted
+          loop
+          playsinline
+          autoplay
+          data-hero-video
+        ></video>
+        <div class="hero-shade" aria-hidden="true"></div>
+
+        <div class="hero-content reveal">
+          <p class="eyebrow hero-eyebrow">Von Frauen. Für Frauen.</p>
+          <h1>SALTY SISTERS</h1>
+          <p class="hero-copy">
+            Eine Bewegung von Frauen, die Jesus nachfolgen, echte Gemeinschaft leben und andere Frauen in Freiheit führen.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#community" data-scroll>
+              Community finden
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="button button-ghost" href="#about" data-scroll>
+              Mehr erfahren
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+
+        <a class="scroll-cue" href="#worship" data-scroll>
+          <span>Entdecke mehr</span>
+          <span class="mouse" aria-hidden="true"><span>&nbsp;</span></span>
+        </a>
+      </section>
+
+      <section class="entry-section" aria-label="Einstiege">
+        <div class="section-inner entry-grid">
+          <a id="worship" class="entry-card reveal" href="#contact" data-topic="Worship" data-scroll>
+            <span class="entry-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path d="M24 4v40M12 16c0-6.6 5.4-12 12-12s12 5.4 12 12v8c0 6.6-5.4 12-12 12s-12-5.4-12-12v-8z" />
+                <path d="M8 24h4M36 24h4" />
+              </svg>
+            </span>
+            <span class="entry-title">Worship</span>
+            <span class="entry-text">Komm in Gottes Gegenwart. Worship, der dein Herz berührt und dich freisetzt.</span>
+            <span class="entry-link">Entdecken <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a id="podcast" class="entry-card reveal" href="#contact" data-topic="Podcast" data-scroll>
+            <span class="entry-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <circle cx="24" cy="20" r="8" />
+                <path d="M12 28c0-2 4-6 12-6s12 4 12 6" />
+                <path d="M16 44V32M32 44V32M24 28v16" />
+              </svg>
+            </span>
+            <span class="entry-title">Podcast</span>
+            <span class="entry-text">Ehrliche Gespräche über Glaube, Identität und Freiheit. Real talk, kein Filter.</span>
+            <span class="entry-link">Entdecken <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="entry-card reveal" href="#community" data-scroll>
+            <span class="entry-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <circle cx="24" cy="14" r="6" />
+                <circle cx="10" cy="20" r="5" />
+                <circle cx="38" cy="20" r="5" />
+                <path d="M6 36c0-4 3-8 10-8 2 0 4 .5 5.5 1.5M42 36c0-4-3-8-10-8-2 0-4 .5-5.5 1.5M14 40c0-5 4-10 10-10s10 5 10 10" />
+              </svg>
+            </span>
+            <span class="entry-title">Community</span>
+            <span class="entry-text">Echte Schwesternschaft. Lokale Gruppen. Frauen, die gemeinsam gehen.</span>
+            <span class="entry-link">Entdecken <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="photo-strip-section" aria-label="Salty Sisters Fotos">
+        <div class="photo-strip" data-photo-strip>
+          <figure class="photo-card reveal"><img src="public/photos/036A9165.jpg" alt="Celina und Sonja am See" loading="lazy" /></figure>
+          <figure class="photo-card reveal"><img src="public/photos/036A9509.jpg" alt="MT 5:13 Varsity Jackets" loading="lazy" /></figure>
+          <figure class="photo-card reveal"><img src="public/photos/036A8925.jpg" alt="Celina und Sonja unter der Weide" loading="lazy" /></figure>
+          <figure class="photo-card reveal"><img src="public/photos/036A9109.jpg" alt="Schwesternschaft am See" loading="lazy" /></figure>
+          <figure class="photo-card reveal"><img src="public/photos/036A9526.jpg" alt="Blick nach oben" loading="lazy" /></figure>
+          <figure class="photo-card reveal"><img src="public/photos/036A9364.jpg" alt="Am Seeufer" loading="lazy" /></figure>
+          <figure class="photo-card reveal"><img src="public/photos/036A8966.jpg" alt="Celina und Sonja Portrait" loading="lazy" /></figure>
+        </div>
+        <a class="button button-primary strip-cta" href="#about" data-scroll>
+          Über uns
+          <span aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      <section id="about" class="about-section">
+        <div class="section-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Von Frauen. Für Frauen.</p>
+            <h2>Ganz Frau.<br />Ganz frei.</h2>
+            <span class="accent-line" aria-hidden="true">&nbsp;</span>
+          </div>
+
+          <div class="two-column">
+            <article class="text-block reveal">
+              <h3>Unsere Vision</h3>
+              <p>
+                Wir sehen eine Bewegung von Frauen, die in ihrer Identität in Christus leben, in Freiheit und Reinheit
+                aufblühen und aus dieser Fülle heraus andere Frauen freisetzen.
+              </p>
+            </article>
+            <article class="text-block reveal">
+              <h3>Unsere Mission</h3>
+              <p>
+                SALTY SISTERS erreicht Frauen digital, führt sie in Gottes Gegenwart und befähigt sie, selbst Teil einer
+                multiplizierenden Bewegung zu werden.
+              </p>
+            </article>
+          </div>
+
+          <ul class="value-list reveal" aria-label="Werte">
+            <li>Jesus</li>
+            <li>Gemeinschaft</li>
+            <li>Jüngerschaft</li>
+            <li>Mutterschaft</li>
+            <li>Multiplikation</li>
+          </ul>
+        </div>
+
+        <div class="manifesto-band">
+          <div class="manifesto-inner reveal">
+            <p class="eyebrow">Was wir leben</p>
+            <p>
+              Wir sind Frauen, die Jesus nachfolgen und geschmackvoll in ihrem Umfeld leben. Wir leben Gemeinschaft als
+              Schwestern auf Augenhöhe. Wir geben weiter, was wir empfangen haben. Jede Frau ist willkommen und jede Frau
+              ist gefragt.
+            </p>
+            <strong>Das hier ist ein Ruf. Willkommen Zuhause.</strong>
+          </div>
+        </div>
+
+        <div class="section-inner founders">
+          <figure class="founders-hero reveal">
+            <img src="public/photos/036A9109.jpg" alt="Celina und Sonja, Gründerinnen von Salty Sisters" loading="lazy" />
+            <figcaption>
+              <span>Die Gründerinnen</span>
+              <strong>Celina &amp; Sonja</strong>
+            </figcaption>
+          </figure>
+
+          <div class="founder-grid">
+            <article class="founder-card reveal">
+              <img src="public/photos/celina-solo.jpg" alt="Celina Thöny" loading="lazy" />
+              <h3>Celina Thöny</h3>
+              <p class="founder-role">Mitgründerin · Visionärin · Worship-Leiterin</p>
+              <p>
+                Celina trägt als Visionärin, Vernetzerin und Anzünderin den Ruf, Frauen in ihre von Gott gegebene
+                Identität zu führen. Sie bringt Klarheit, die in wahre Freiheit und Reinheit mündet. Zwei Worte prägen
+                ihr Leben: Hingabe und Auserwählung.
+              </p>
+            </article>
+
+            <article class="founder-card founder-offset reveal">
+              <img src="public/photos/sonja-solo.jpg" alt="Sonja Mutter" loading="lazy" />
+              <h3>Sonja Mutter</h3>
+              <p class="founder-role">Mitgründerin · Tänzerin · Seelsorgerin</p>
+              <p>
+                Sonja trägt ein tiefes Anliegen, Frauen in ihre von Gott gegebene Identität zu führen und sie in ihrer
+                kreativen und geistlichen Berufung freizusetzen. Ihr Herz ist es, Frauen nicht nur zu stärken, sondern sie
+                zu befähigen, selbst wieder andere Frauen zu begleiten.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="community" class="community-section">
+        <div class="section-inner">
+          <div class="community-heading">
+            <div class="section-heading reveal">
+              <p class="eyebrow">Finde deine Schwestern</p>
+              <h2>Join<br />Community</h2>
+              <span class="accent-line sage" aria-hidden="true">&nbsp;</span>
+            </div>
+            <p class="lead reveal">
+              SALTY SISTERS ist mehr als Content. Es ist echte Gemeinschaft. Lokale Gruppen in der Schweiz, Deutschland
+              und Österreich. Frauen, die gemeinsam Jesus nachfolgen.
+            </p>
+          </div>
+
+          <div class="map-shell reveal">
+            <div id="community-map" class="leaflet-map" data-leaflet-map aria-label="Community Karte DACH"></div>
+            <div class="map-loading" data-map-loading>
+              <span class="map-spinner" aria-hidden="true">&nbsp;</span>
+              <p>Karte wird geladen...</p>
+            </div>
+            <aside class="map-popup-card" data-group-card hidden>
+              <button class="map-popup-close" type="button" aria-label="Gruppenkarte schliessen" data-group-close>
+                <span aria-hidden="true">×</span>
+              </button>
+              <div class="map-popup-heading">
+                <span class="map-popup-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M17.7 16.7 13.4 21a2 2 0 0 1-2.8 0l-4.3-4.3a8 8 0 1 1 11.4 0Z" />
+                    <path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  </svg>
+                </span>
+                <span>
+                  <strong data-group-city>Zürich</strong>
+                  <small><span data-group-members>8</span> Schwestern</small>
+                </span>
+              </div>
+              <p>Gruppenleiterin: <strong data-group-leader>Anna M.</strong></p>
+              <a class="button button-secondary" href="#contact" data-topic="Community finden" data-scroll>
+                Kontakt aufnehmen
+                <span aria-hidden="true">→</span>
+              </a>
+            </aside>
+          </div>
+
+          <div class="community-actions reveal">
+            <a class="button button-secondary" href="#contact" data-topic="Community finden" data-scroll>
+              Community finden
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="button button-outline" href="#contact" data-topic="Eigene Gruppe starten" data-scroll>
+              Eigene Gruppe starten
+              <span aria-hidden="true">+</span>
+            </a>
+          </div>
+
+          <div class="how-grid">
+            <div class="chat-panel reveal" aria-label="Beispiel einer Community Gruppe">
+              <div class="chat-header">
+                <span class="chat-avatar">SS</span>
+                <div>
+                  <strong>Salty Sisters Zürich</strong>
+                  <span>8 Mitglieder · Aktiv</span>
+                </div>
+              </div>
+              <div class="chat-bubble">Hey Mädels, nächsten Dienstag bei mir?</div>
+              <div class="chat-bubble">Bin dabei. Wer bringt Snacks?</div>
+              <div class="chat-bubble self">Ich komme und bringe Kuchen mit.</div>
+              <div class="chat-bubble">So schön. Freue mich auf Worship und Gebet zusammen.</div>
+            </div>
+
+            <article class="text-block reveal">
+              <h3>So sieht eine Gruppe aus</h3>
+              <p>
+                Regelmässige Treffen bei jemandem zu Hause, in einem Café oder online. Ehrliche Gespräche, gemeinsames
+                Gebet, Worship und Jüngerschaft. Kein Programm, keine Hürden. Jede Frau ist willkommen.
+              </p>
+              <ul class="check-list">
+                <li>Alles startet mit einer WhatsApp-Nachricht</li>
+                <li>Einstieg ohne Hürden, jede Frau willkommen</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="donate" class="donate-section">
+        <div class="section-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Werde Teil davon</p>
+            <h2>Gemeinsam<br />bauen</h2>
+            <span class="accent-line" aria-hidden="true">&nbsp;</span>
+            <p class="lead">
+              Werde Teil dessen, was Gott durch SALTY SISTERS baut. Wir glauben, dass Geben freiwillig geschieht, aus dem,
+              was Gott ins Herz legt.
+            </p>
+          </div>
+
+          <div class="donate-grid">
+            <button class="donate-card reveal" type="button" data-topic="Einmalig spenden" data-scroll-target="#contact">
+              <span class="donate-icon" aria-hidden="true">CHF</span>
+              <strong>Einmalig spenden</strong>
+              <span>Unterstütze konkret den Aufbau und aktuelle Projekte.</span>
+              <span class="entry-link">Jetzt Spenden <span aria-hidden="true">→</span></span>
+            </button>
+            <button class="donate-card featured reveal" type="button" data-topic="Regelmässig unterstützen" data-scroll-target="#contact">
+              <span class="donate-icon" aria-hidden="true">∞</span>
+              <strong>Regelmässig unterstützen</strong>
+              <span>Werde Teil der Bewegung und ermögliche nachhaltiges Wachstum.</span>
+              <span class="entry-link">Jetzt Spenden <span aria-hidden="true">→</span></span>
+            </button>
+            <button class="donate-card reveal" type="button" data-topic="Partner / Mäzen" data-scroll-target="#contact">
+              <span class="donate-icon" aria-hidden="true">♥</span>
+              <strong>Partner / Mäzen</strong>
+              <span>Trage durch grössere oder gezielte Unterstützung dazu bei, dass Visionen umgesetzt werden.</span>
+              <span class="entry-link">Jetzt Spenden <span aria-hidden="true">→</span></span>
+            </button>
+          </div>
+
+          <p class="donate-note reveal">
+            Deine Spende fliesst direkt in den Aufbau von SALTY SISTERS, von Content bis hin zu lokalen Communities und
+            Jüngerschaft.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div class="section-inner contact-grid">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Kontakt</p>
+            <h2>Schreib<br />uns</h2>
+            <span class="accent-line sage" aria-hidden="true">&nbsp;</span>
+            <p class="lead">
+              Für Community, Worship, Podcast, Spenden oder allgemeine Fragen. Deine Nachricht landet direkt bei SALTY SISTERS.
+            </p>
+          </div>
+
+          <form class="contact-form reveal" action="mail.php" method="post" data-contact-form>
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required maxlength="120" />
+            </div>
+            <div class="form-row">
+              <label for="email">E-Mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" required maxlength="180" />
+            </div>
+            <div class="form-row">
+              <label for="topic">Thema</label>
+              <select id="topic" name="topic" data-topic-select>
+                <option>Allgemeine Anfrage</option>
+                <option>Community finden</option>
+                <option>Eigene Gruppe starten</option>
+                <option>Worship</option>
+                <option>Podcast</option>
+                <option>Einmalig spenden</option>
+                <option>Regelmässig unterstützen</option>
+                <option>Partner / Mäzen</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="message">Nachricht</label>
+              <textarea id="message" name="message" rows="6" required maxlength="4000"></textarea>
+            </div>
+            <div class="hp-field" aria-hidden="true">
+              <label for="website">Website</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <button class="button button-primary form-button" type="submit">
+              Nachricht senden
+              <span aria-hidden="true">→</span>
+            </button>
+            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-inner footer-grid">
+        <div class="footer-brand">
+          <h2>SALTY SISTERS</h2>
+          <p>Von Frauen. Für Frauen.</p>
+          <p>Verein SALTY SISTERS · Am Mühlebach 1 · 8964 Rudolfstetten</p>
+        </div>
+
+        <nav aria-label="Footer Links">
+          <h3>Links</h3>
+          <a href="#worship" data-scroll>Worship</a>
+          <a href="#podcast" data-scroll>Podcast</a>
+          <a href="#community" data-scroll>Community</a>
+          <a href="#about" data-scroll>Über uns</a>
+          <a href="#donate" data-scroll>Spenden</a>
+        </nav>
+
+        <div>
+          <h3>Kontakt</h3>
+          <a href="mailto:info@saltysisters.eu">info@saltysisters.eu</a>
+          <a href="https://www.saltysisters.eu" target="_blank" rel="noopener noreferrer">www.saltysisters.eu</a>
+          <h3 class="footer-subtitle">Social Media</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="TikTok">TT</a>
+            <a href="#" aria-label="YouTube">YT</a>
+            <a href="#" aria-label="Spotify">SP</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 SALTY SISTERS. Alle Rechte vorbehalten.</p>
+        <div>
+          <a href="#contact" data-topic="Impressum" data-scroll>Impressum</a>
+          <a href="#contact" data-topic="Datenschutz" data-scroll>Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
