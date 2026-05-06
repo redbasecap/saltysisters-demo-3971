@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-dark text-white relative overflow-hidden">
       {/* Subtle top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-olive-400/30 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-sage-400/30 to-transparent" />
 
       <div ref={ref} className="max-w-[1400px] mx-auto px-6 md:px-10 py-16 md:py-24">
         <div className="grid md:grid-cols-4 gap-10 md:gap-16">
@@ -32,7 +32,7 @@ export default function Footer() {
               {Array.from({ length: 5 }).map((_, i) => (
                 <div
                   key={i}
-                  className="w-1.5 h-1.5 rounded-sm bg-olive-400/30 rotate-45"
+                  className="w-1.5 h-1.5 rounded-sm bg-sage-400/30 rotate-45"
                   style={{ animationDelay: `${i * 0.2}s` }}
                 />
               ))}

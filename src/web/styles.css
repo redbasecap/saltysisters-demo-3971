@@ -41,36 +41,36 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Salty Sisters custom colors */
-  --color-olive-900: #2E3A16;
-  --color-olive-800: #3A4A1C;
-  --color-olive-700: #4A5D23;
-  --color-olive-600: #5A6F2E;
-  --color-olive-500: #6B7F3B;
-  --color-olive-400: #8FA94E;
-  --color-olive-300: #A8BF6E;
-  --color-olive-200: #C5D68C;
-  --color-olive-100: #E2EBCC;
-  --color-olive-50: #F0F4E5;
+  /* Salty Sisters — New palette */
+  --color-sage-900: #4A5D3A;
+  --color-sage-800: #5C6F4A;
+  --color-sage-700: #6E8560;
+  --color-sage-600: #7D9670;
+  --color-sage-500: #90AA7D;
+  --color-sage-400: #A4BB95;
+  --color-sage-300: #B5C9A9;
+  --color-sage-200: #C0C9A6;
+  --color-sage-100: #D9E0CC;
+  --color-sage-50: #ECF0E5;
 
   --color-sand-900: #5C5647;
   --color-sand-800: #7A7262;
   --color-sand-700: #9A8F7D;
   --color-sand-600: #B5A995;
   --color-sand-500: #C8BBAA;
-  --color-sand-400: #D9CEBC;
-  --color-sand-300: #E5DDD0;
-  --color-sand-200: #EDE6D6;
-  --color-sand-100: #F5F0E8;
-  --color-sand-50: #FAF8F3;
+  --color-sand-400: #D5C9B6;
+  --color-sand-300: #E0D4C0;
+  --color-sand-200: #EAE1D1;
+  --color-sand-100: #F3EEE3;
+  --color-sand-50: #F9F6F0;
 
   --color-orange-accent: #E07032;
   --color-orange-hover: #F28C5A;
   --color-orange-light: #FDF0E8;
 
   --color-dark: #1A1A18;
-  --color-dark-muted: #2D2D28;
-  --color-warm-white: #FEFDFB;
+  --color-dark-muted: #3D3D38;
+  --color-warm-white: #F9F6F0;
 
   --font-display: 'Oswald', sans-serif;
   --font-body: 'DM Sans', sans-serif;
@@ -78,37 +78,37 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #FEFDFB;
+  --background: #F9F6F0;
   --foreground: #1A1A18;
-  --card: #FEFDFB;
+  --card: #F9F6F0;
   --card-foreground: #1A1A18;
-  --popover: #FEFDFB;
+  --popover: #F9F6F0;
   --popover-foreground: #1A1A18;
-  --primary: #4A5D23;
-  --primary-foreground: #FEFDFB;
-  --secondary: #F5F0E8;
+  --primary: #6E8560;
+  --primary-foreground: #F9F6F0;
+  --secondary: #F3EEE3;
   --secondary-foreground: #1A1A18;
-  --muted: #F5F0E8;
+  --muted: #F3EEE3;
   --muted-foreground: #5C5647;
   --accent: #E07032;
-  --accent-foreground: #FEFDFB;
+  --accent-foreground: #F9F6F0;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #E5DDD0;
-  --input: #E5DDD0;
-  --ring: #8FA94E;
-  --chart-1: #4A5D23;
-  --chart-2: #6B7F3B;
-  --chart-3: #8FA94E;
+  --border: #E0D4C0;
+  --input: #E0D4C0;
+  --ring: #90AA7D;
+  --chart-1: #6E8560;
+  --chart-2: #90AA7D;
+  --chart-3: #C0C9A6;
   --chart-4: #E07032;
   --chart-5: #F28C5A;
-  --sidebar: #F5F0E8;
+  --sidebar: #F3EEE3;
   --sidebar-foreground: #1A1A18;
-  --sidebar-primary: #4A5D23;
-  --sidebar-primary-foreground: #FEFDFB;
-  --sidebar-accent: #EDE6D6;
+  --sidebar-primary: #6E8560;
+  --sidebar-primary-foreground: #F9F6F0;
+  --sidebar-accent: #EAE1D1;
   --sidebar-accent-foreground: #1A1A18;
-  --sidebar-border: #E5DDD0;
-  --sidebar-ring: #8FA94E;
+  --sidebar-border: #E0D4C0;
+  --sidebar-ring: #90AA7D;
 }
 
 @layer base {
@@ -126,27 +126,24 @@
   }
 }
 
-/* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F5F0E8;
+  background: #F3EEE3;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C5D68C;
+  background: #C0C9A6;
   border-radius: 3px;
 }
 
-/* Leaflet overrides */
 .leaflet-container {
   font-family: var(--font-body) !important;
-  background: #F5F0E8 !important;
+  background: #F3EEE3 !important;
 }
 .leaflet-popup-content-wrapper {
   border-radius: 12px !important;
@@ -157,7 +154,6 @@ html {
   box-shadow: none !important;
 }
 
-/* Hide photo strip scrollbar but keep scroll */
 .photo-strip-scroll::-webkit-scrollbar {
   display: none;
 }

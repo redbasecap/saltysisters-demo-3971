@@ -13,8 +13,8 @@ const cards = [
         <path d="M8 24h4M36 24h4" />
       </svg>
     ),
-    gradient: 'from-olive-700 to-olive-900',
-    bgImage: 'radial-gradient(ellipse at 30% 20%, rgba(143,169,78,0.4) 0%, transparent 60%)',
+    gradient: 'from-sage-700 to-sage-900',
+    bgImage: 'radial-gradient(ellipse at 30% 20%, rgba(144,170,125,0.4) 0%, transparent 60%)',
   },
   {
     id: 'podcast',
@@ -28,8 +28,8 @@ const cards = [
         <path d="M24 28v16" />
       </svg>
     ),
-    gradient: 'from-olive-600 to-olive-800',
-    bgImage: 'radial-gradient(ellipse at 70% 30%, rgba(107,127,59,0.4) 0%, transparent 60%)',
+    gradient: 'from-sage-600 to-sage-800',
+    bgImage: 'radial-gradient(ellipse at 70% 30%, rgba(110,133,96,0.4) 0%, transparent 60%)',
   },
   {
     id: 'community-card',
@@ -43,8 +43,8 @@ const cards = [
         <path d="M6 36c0-4 3-8 10-8 2 0 4 .5 5.5 1.5M42 36c0-4-3-8-10-8-2 0-4 .5-5.5 1.5M14 40c0-5 4-10 10-10s10 5 10 10" />
       </svg>
     ),
-    gradient: 'from-olive-500 to-olive-700',
-    bgImage: 'radial-gradient(ellipse at 50% 50%, rgba(197,214,140,0.35) 0%, transparent 60%)',
+    gradient: 'from-sage-500 to-sage-700',
+    bgImage: 'radial-gradient(ellipse at 50% 50%, rgba(192,201,166,0.35) 0%, transparent 60%)',
   },
 ];
 

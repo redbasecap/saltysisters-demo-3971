@@ -43,7 +43,7 @@ export default function Donate() {
     <section id="donate" className="relative bg-warm-white py-24 md:py-36 overflow-hidden">
       {/* Decorative background blobs */}
       <div className="absolute top-20 right-0 w-96 h-96 rounded-full bg-orange-light/40 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-20 left-0 w-72 h-72 rounded-full bg-olive-50/60 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 left-0 w-72 h-72 rounded-full bg-sage-50/60 blur-3xl pointer-events-none" />
 
       <div ref={ref} className="max-w-[1400px] mx-auto px-6 md:px-10 relative">
         {/* Header */}
@@ -52,7 +52,7 @@ export default function Donate() {
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="font-display text-sm tracking-[0.3em] text-olive-500 uppercase mb-4"
+            className="font-display text-sm tracking-[0.3em] text-sage-500 uppercase mb-4"
           >
             {t('donate.tagline')}
           </motion.p>
@@ -92,7 +92,7 @@ export default function Donate() {
               whileHover={{ y: -6, transition: { duration: 0.3 } }}
               className={`group relative rounded-2xl p-8 md:p-10 transition-all duration-300 cursor-pointer overflow-hidden ${
                 option.accent
-                  ? 'bg-olive-700 text-white shadow-xl shadow-olive-700/20 hover:shadow-2xl hover:shadow-olive-700/30'
+                  ? 'bg-sage-700 text-white shadow-xl shadow-sage-700/20 hover:shadow-2xl hover:shadow-sage-700/30'
                   : 'bg-sand-100 hover:bg-sand-50 border border-sand-200 shadow-md hover:shadow-xl'
               }`}
             >
@@ -103,7 +103,7 @@ export default function Donate() {
                 } to-transparent skew-x-12 group-hover:translate-x-[200%] transition-transform duration-1000`} />
               </div>
 
-              <div className={`mb-6 transition-transform duration-300 group-hover:scale-110 ${option.accent ? 'text-olive-200' : 'text-olive-500'}`}>
+              <div className={`mb-6 transition-transform duration-300 group-hover:scale-110 ${option.accent ? 'text-sage-200' : 'text-sage-500'}`}>
                 {option.icon}
               </div>
               <h3
@@ -122,7 +122,7 @@ export default function Donate() {
               </p>
               <div
                 className={`inline-flex items-center gap-2 font-display text-sm tracking-widest uppercase group-hover:gap-3 transition-all duration-300 ${
-                  option.accent ? 'text-olive-200' : 'text-olive-600'
+                  option.accent ? 'text-sage-200' : 'text-sage-600'
                 }`}
               >
                 <span>{t('donate.cta')}</span>

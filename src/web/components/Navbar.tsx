@@ -85,7 +85,7 @@ export default function Navbar() {
                 onClick={() => scrollTo(item.href)}
                 className={`relative font-display text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-300 py-1 ${
                   scrolled
-                    ? activeSection === item.id ? 'text-olive-700' : 'text-dark-muted hover:text-dark'
+                    ? activeSection === item.id ? 'text-sage-700' : 'text-dark-muted hover:text-dark'
                     : activeSection === item.id ? 'text-white' : 'text-white/70 hover:text-white'
                 }`}
               >
@@ -94,7 +94,7 @@ export default function Navbar() {
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="navIndicator"
-                    className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${scrolled ? 'bg-olive-500' : 'bg-white'}`}
+                    className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${scrolled ? 'bg-sage-500' : 'bg-white'}`}
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -133,7 +133,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 bg-warm-white flex flex-col items-center justify-center gap-6"
           >
             {/* Background decoration */}
-            <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-olive-50 blur-3xl opacity-60 pointer-events-none" />
+            <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-sage-50 blur-3xl opacity-60 pointer-events-none" />
             <div className="absolute bottom-20 left-10 w-48 h-48 rounded-full bg-sand-200 blur-3xl opacity-60 pointer-events-none" />
 
             {navItems.map((item, i) => (

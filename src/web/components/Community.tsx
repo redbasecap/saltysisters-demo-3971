@@ -53,9 +53,9 @@ function LeafletMap() {
       // Pulsing marker with olive color
       const markerIcon = L.divIcon({
         html: `<div style="position:relative;width:32px;height:32px;">
-          <div style="position:absolute;inset:0;background:rgba(74,93,35,0.2);border-radius:50%;animation:mapPulse 2s ease-out infinite;"></div>
-          <div style="position:absolute;top:4px;left:4px;width:24px;height:24px;background:#4A5D23;border:3px solid #FEFDFB;border-radius:50%;box-shadow:0 2px 10px rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:center;">
-            <div style="width:6px;height:6px;background:#C5D68C;border-radius:50%;"></div>
+          <div style="position:absolute;inset:0;background:rgba(110,133,96,0.25);border-radius:50%;animation:mapPulse 2s ease-out infinite;"></div>
+          <div style="position:absolute;top:4px;left:4px;width:24px;height:24px;background:#6E8560;border:3px solid #F9F6F0;border-radius:50%;box-shadow:0 2px 10px rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:center;">
+            <div style="width:6px;height:6px;background:#C0C9A6;border-radius:50%;"></div>
           </div>
         </div>`,
         iconSize: [32, 32],
@@ -101,8 +101,8 @@ function LeafletMap() {
       {!mapReady && (
         <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-sand-100">
           <div className="text-center">
-            <div className="w-8 h-8 border-2 border-olive-400 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-            <p className="font-body text-sm text-olive-500">Karte wird geladen...</p>
+            <div className="w-8 h-8 border-2 border-sage-400 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+            <p className="font-body text-sm text-sage-500">Karte wird geladen...</p>
           </div>
         </div>
       )}
@@ -125,8 +125,8 @@ function LeafletMap() {
             </svg>
           </button>
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-11 h-11 rounded-full bg-olive-100 flex items-center justify-center">
-              <svg className="w-5 h-5 text-olive-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+            <div className="w-11 h-11 rounded-full bg-sage-100 flex items-center justify-center">
+              <svg className="w-5 h-5 text-sage-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                 <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
@@ -137,13 +137,13 @@ function LeafletMap() {
             </div>
           </div>
           <p className="font-body text-sm text-dark-muted mb-4">
-            Gruppenleiterin: <span className="text-olive-700 font-medium">{activeGroup.leader}</span>
+            Gruppenleiterin: <span className="text-sage-700 font-medium">{activeGroup.leader}</span>
           </p>
           <motion.a
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             href={`mailto:group@saltysisters.eu?subject=Community ${activeGroup.name}`}
-            className="inline-flex items-center gap-2 bg-olive-700 hover:bg-olive-800 text-white font-display text-sm tracking-wider uppercase px-5 py-2.5 rounded-full transition-colors w-full justify-center"
+            className="inline-flex items-center gap-2 bg-sage-700 hover:bg-sage-800 text-white font-display text-sm tracking-wider uppercase px-5 py-2.5 rounded-full transition-colors w-full justify-center"
           >
             Kontakt aufnehmen
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -167,41 +167,44 @@ export default function Community() {
     <section id="community" className="relative bg-sand-50 overflow-hidden">
       <div ref={ref} className="max-w-[1400px] mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-24 md:pb-36 relative z-10">
         {/* Header */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-end mb-14 md:mb-20 relative">
-          {/* Decorative marquee — behind content, clipped to this block */}
-          <div className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none select-none -z-10 opacity-40">
-            <motion.p
-              animate={{ x: ['0%', '-50%'] }}
-              transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-              className="font-display text-[3rem] sm:text-[4rem] md:text-[5rem] font-bold text-sand-300 tracking-wider whitespace-nowrap leading-none"
-            >
-              COMMUNITY · SCHWESTERNSCHAFT · COMMUNITY · SCHWESTERNSCHAFT ·&nbsp;
-            </motion.p>
-          </div>
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-end mb-14 md:mb-20">
           <div className="relative">
-            <motion.p
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="font-display text-sm tracking-[0.3em] text-olive-500 uppercase mb-4"
-            >
-              {t('community.tagline')}
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-dark leading-[0.85] tracking-tight"
-            >
-              {t('community.headline')}
-            </motion.h2>
-            {/* Accent line */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={isInView ? { scaleX: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="h-1 w-24 bg-olive-400 rounded-full mt-6 origin-left"
-            />
+            {/* Marquee — z-0, text is z-10 above it */}
+            <div className="absolute inset-x-0 top-0 h-full overflow-hidden pointer-events-none select-none z-0" aria-hidden="true">
+              <motion.span
+                animate={{ x: ['0%', '-50%'] }}
+                transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+                className="absolute top-1/2 -translate-y-1/2 font-display text-[2.5rem] sm:text-[3rem] md:text-[4rem] font-bold text-sand-300/40 tracking-wider whitespace-nowrap leading-none"
+              >
+                COMMUNITY · SCHWESTERNSCHAFT · COMMUNITY · SCHWESTERNSCHAFT ·&nbsp;
+              </motion.span>
+            </div>
+
+            <div className="relative z-10">
+              <motion.p
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6 }}
+                className="font-display text-sm tracking-[0.3em] text-sage-500 uppercase mb-4"
+              >
+                {t('community.tagline')}
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-dark leading-[0.85] tracking-tight"
+              >
+                {t('community.headline')}
+              </motion.h2>
+              {/* Accent line */}
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={isInView ? { scaleX: 1 } : {}}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="h-1 w-24 bg-sage-400 rounded-full mt-6 origin-left"
+              />
+            </div>
           </div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -233,7 +236,7 @@ export default function Community() {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             href="mailto:group@saltysisters.eu?subject=Community finden"
-            className="inline-flex items-center justify-center gap-2 bg-olive-700 hover:bg-olive-800 text-white font-display text-sm md:text-base tracking-widest uppercase px-8 py-4 rounded-full transition-all duration-300 shadow-lg shadow-olive-700/20"
+            className="inline-flex items-center justify-center gap-2 bg-sage-700 hover:bg-sage-800 text-white font-display text-sm md:text-base tracking-widest uppercase px-8 py-4 rounded-full transition-all duration-300 shadow-lg shadow-sage-700/20"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -244,7 +247,7 @@ export default function Community() {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             href="mailto:group@saltysisters.eu?subject=Eigene Gruppe starten"
-            className="inline-flex items-center justify-center gap-2 border-2 border-olive-700 text-olive-700 hover:bg-olive-700 hover:text-white font-display text-sm md:text-base tracking-widest uppercase px-8 py-4 rounded-full transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 border-2 border-sage-700 text-sage-700 hover:bg-sage-700 hover:text-white font-display text-sm md:text-base tracking-widest uppercase px-8 py-4 rounded-full transition-all duration-300"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path d="M12 4v16m8-8H4" />
@@ -265,17 +268,17 @@ export default function Community() {
             className="bg-warm-white rounded-2xl p-6 md:p-8 shadow-xl border border-sand-200 relative overflow-hidden"
           >
             {/* Decorative gradient */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-olive-400 via-olive-500 to-olive-300" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sage-400 via-sage-500 to-sage-300" />
             
             <div className="flex items-center gap-3 mb-5 pb-4 border-b border-sand-200">
-              <div className="w-10 h-10 rounded-full bg-olive-400 flex items-center justify-center shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-sage-400 flex items-center justify-center shadow-sm">
                 <span className="text-white font-display font-bold text-xs tracking-wider">SS</span>
               </div>
               <div>
                 <p className="font-display text-sm font-bold text-dark">Salty Sisters Zürich</p>
                 <p className="text-xs text-dark-muted font-body">8 Mitglieder · Aktiv</p>
               </div>
-              <div className="ml-auto w-2 h-2 rounded-full bg-olive-400 animate-pulse" />
+              <div className="ml-auto w-2 h-2 rounded-full bg-sage-400 animate-pulse" />
             </div>
             {/* Chat bubbles */}
             <div className="space-y-3">
@@ -294,11 +297,11 @@ export default function Community() {
                 >
                   <div className={`rounded-2xl px-4 py-2.5 max-w-[80%] ${
                     msg.self
-                      ? 'bg-olive-200 rounded-br-sm'
-                      : 'bg-olive-50 rounded-bl-sm'
+                      ? 'bg-sage-200 rounded-br-sm'
+                      : 'bg-sage-50 rounded-bl-sm'
                   }`}>
                     {msg.from && (
-                      <p className="text-xs text-olive-600 font-medium mb-0.5 font-body">{msg.from}</p>
+                      <p className="text-xs text-sage-600 font-medium mb-0.5 font-body">{msg.from}</p>
                     )}
                     <p className="text-sm text-dark font-body">{msg.text}</p>
                   </div>
@@ -325,7 +328,7 @@ export default function Community() {
               {[
                 {
                   icon: (
-                    <svg className="w-4 h-4 text-olive-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <svg className="w-4 h-4 text-sage-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
                     </svg>
                   ),
@@ -333,7 +336,7 @@ export default function Community() {
                 },
                 {
                   icon: (
-                    <svg className="w-4 h-4 text-olive-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <svg className="w-4 h-4 text-sage-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path d="M5 13l4 4L19 7" />
                     </svg>
                   ),
@@ -347,7 +350,7 @@ export default function Community() {
                   transition={{ duration: 0.5, delay: 0.5 + i * 0.12 }}
                   className="flex items-start gap-3 group"
                 >
-                  <div className="w-8 h-8 rounded-full bg-olive-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-olive-200 transition-colors duration-300">
+                  <div className="w-8 h-8 rounded-full bg-sage-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-sage-200 transition-colors duration-300">
                     {item.icon}
                   </div>
                   <p className="font-body text-dark-muted">{item.text}</p>
