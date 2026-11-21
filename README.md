@@ -1,5 +1,7 @@
 # SALTY SISTERS Website
 
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/redbasecap)
+
 Reine HTML/CSS/JS-Website mit einem kleinen PHP-Endpunkt für Formular-Mails.
 
 ## Struktur
